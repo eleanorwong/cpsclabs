@@ -1,0 +1,36 @@
+mtf - unsorted link list with move to front on find
+	insert -> o(1)
+	remove -> o(n)
+	find -> o(n)
+
+sl - sorted vector
+	insert -> log(n) + n
+	find -> o(logn)
+
+hch - hash table with chaining (fixed size 10000)
+	insert -> o(1)
+	remove -> o(1)
+	find -> o(1)
+
+hqp - hash table with double hashing
+	insert -> o(1)
+	remove -> o(1)
+	find -> o(1)
+
+bstT - binary search tree with tombstones
+	insert -> o(logn)
+	remove -> o(logn)
+	find -> o(logn)
+
+avl tree
+	insert -> o(logn)
+	remove -> o(logn)
+	find -> o(logn)
+
+splay tree
+	insert -> o(logn)
+	remove -> o(logn)
+	find -> o(logn) FIND MOVES TO TOP
+
+
+TESTING

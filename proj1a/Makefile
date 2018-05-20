@@ -1,0 +1,34 @@
+# Our project ('all') is just to build the executable file 'index'
+# This line simply says that 'all' depends on 'index'.
+all : index
+	echo "all compiled"
+
+# 'index' depends on one .o (object) file
+# add any new .o files to the list
+# build it using g++
+index : index.o book_index.o
+	g++ -Wall -g index.o book_index.o -o index
+
+book_index.o : book_index.cc book_index.h
+	g++ -Wall -c book_index.cc -o book_index.o
+
+# index.o is dependant on one .cc file and no .h files
+# IMPORTANT: when you #include a new .h file, be sure to add it here.
+# Otherwise, the 'make' command may not re-build your program even
+# though you changed that .h file.
+# -Wall: make the compiler display all warnings it knows about;
+# hopefully it'll catch something for us
+# -c: only compile, don't link (we do that above)
+# -g: put in debug information, for those of you who are using
+# debuggers (like gdb or ddd or xxgdb)
+index.o : index.cc book_index.h
+	g++ -std=c++11 -Wall -c index.cc -o index.o
+
+# and same idea for other .o files ...
+
+
+# 'clean' removes any files that were created via the Makefile,
+# leaving you with only your original source code files
+clean :
+	rm *.o
+	rm index

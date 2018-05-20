@@ -1,0 +1,12 @@
+Insert Linearly 10000 Elements
+Find max 10000 times
+
+linked list, sorted vector, chaining hash, double hash, BST, avl, splay
+
+01 linked GOOD
+02 avl
+03 bst
+04 vector? (bad remove) GOOD
+05 double hash table GOOD
+06 splay GOOD
+07 chaining hash GOOD

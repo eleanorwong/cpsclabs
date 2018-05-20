@@ -1,0 +1,17 @@
+# CPSC 221 - Eleanor Wong 32507121 k1w8 | Programming Project 1
+To compile this project, run `make` and then `./index infile.txt outfile.txt`
+
+This project is an implementation of a book index. The goal of this code is to print the words of the book in sorted order, how many times they appear in the book and what pages they occur at.
+
+This program works by reading each line at a time, removing punctuation and normalizing the words. For each word, we check if it is already added in the index, if it doesn't exist, we add a new entry, otherwise, we add a count and the page number to the existing entry.
+
+The book index is composed in a class called 'BookIndex', which has three functions: find, insert, and print. The find function is implemented as a binary search, populating a pointer if the word is in the index and returning the index the word exists at. If the word does not exist in the index, find will return the index it should be at. The insert function finds the word in the index, then if the entry pointer exists, increases the count and page numbers. If the pointer does not exist, a new word is created and inserted into the index at the place specified by the binary search. This results in BookIndex::insert inserting in order. Finally, since we insert each word in order, we just iterate through the book index to print the index in order as entries were inputted in order.
+
+The underlying data structure used for BookIndex is a vector of Word struct pointers. A word struct contains the fields: word, count and pageNumbers. I chose to do binary search to find the entries because it requires the BookIndex to be in order, and is faster to search through than using linear search. Binary search also returns the index the entry is supposed to be in if the entry doesn't exist so this made it easy to insert entries in order. By not needing to sort in the end, printing the index in order is very simple.
+
+## Relevant Files
+* book_index.cc - Implementation of the BookIndex class functions
+* book_index.h - Header file for the BookIndex, defining the class and the Word struct as well as three BookIndex functions
+* index.cc - Contains the main function of the program that takes in two files, an input file and output file, and prints the book index to the output file.
+* ch1.txt - Sample input (Ch.1 of Alice in Wonderland) as supplied by the lab
+* index.txt - Sample output (Index for Ch.1 of Alice in Wonderland)
